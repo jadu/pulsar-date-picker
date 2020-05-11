@@ -18,11 +18,3 @@ after_success:
 sudo: required
 addons:
   chrome: stable
-
-deploy:
-  provider: releases
-  file: pulsar-date-picker.zip
-  skip_cleanup: true
-  on:
-    tags: true
-    all_branches: true
