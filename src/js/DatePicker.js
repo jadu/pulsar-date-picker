@@ -60,8 +60,8 @@ class DatePicker {
         this.$html = $html;
 
         const $datePickers = $html.find('[data-pulsardatepicker="true"]');
-        let defaultDateFormat = 'dd/mm/yy';
-        let inputPlaceholder = 'dd/mm/yyyy';
+        let defaultDateFormat;
+        let inputPlaceholder;
 
         $datePickers.each((index, element) => {
             let $datePickerInput = $(element);
