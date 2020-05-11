@@ -66,8 +66,10 @@ class DatePicker {
         $datePickers.each((index, element) => {
             let $datePickerInput = $(element);
             let dateFormat = $datePickerInput.attr('data-pulsardatepicker-format');
-            let $linkedTriggerButtonId = $datePickerInput.attr('data-pulsardatepicker-trigger');
-            let $linkedTriggerButton = this.$html.find('#' + $linkedTriggerButtonId);
+            let linkedTriggerButtonId = $datePickerInput.attr('data-pulsardatepicker-trigger');
+            let $linkedTriggerButton = this.$html.find('#' + linkedTriggerButtonId);
+            let altField = $datePickerInput.attr('data-pulsardatepicker-altfield');
+            let altFormat = $datePickerInput.attr('data-pulsardatepicker-altformat');
 
             if ($datePickerInput.attr('data-pulsardatepicker-trigger') === undefined) {
                 console.warn('Datepicker: The date input must include a data-pulsardatepicker-trigger data attribute with the value matching the ID of the trigger button');
@@ -102,6 +104,8 @@ class DatePicker {
 
             // Initialize date pickers
             $datePickerInput.datepicker({
+                altField: altField ? '#' + altField : "",
+                altFormat: altFormat ? altFormat : "",
                 closeText: 'Close',
                 dayNamesShort: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
                 dateFormat: defaultDateFormat,

@@ -38,6 +38,8 @@ For example:
 
 The date picker defaults to `DD/MM/YYYY`. For the US date format `MM/DD/YYYY` add `data-pulsardatepicker-format="US"` to the date input. Alternatively for a reverse format `YYYY/MM/DD` add `data-pulsardatepicker-format="reverse"`.
 
+It's also possible to update an alternative field with a different date format by using `data-pulsardatepicker-altfield="ID-of-alternative-field"` and `data-pulsardatepicker-altformat="yy-mm-dd"`. See the [jQuery UI datepicker docs](https://api.jqueryui.com/datepicker/) for more examples of supported date formats.
+
 ### Behaviour
 
 The Date Picker enhances the default jQuery UI date picker with the following:

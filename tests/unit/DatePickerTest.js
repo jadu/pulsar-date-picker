@@ -232,6 +232,35 @@ describe('DatePicker', () => {
             expect(typeof $.fn.datepicker.args[0][0].beforeShow).to.equal('function');
         });
 
+        it('should initialise date pickers, with an empty altField option, when an altField is not present', () => {
+            datePicker.init($body);
+
+            expect($.fn.datepicker.args[0][0].altField).to.equal('');
+        });
+
+        it('should initialise date pickers, with the correct altField option, when an altField is present', () => {
+            $('<input type="text" id="example-alt-field" />').insertAfter($body.find('.form__control'))
+            $body.find('.form__control').attr('data-pulsardatepicker-altfield', 'example-alt-field');
+
+            datePicker.init($body);
+
+            expect($.fn.datepicker.args[0][0].altField).to.equal('#example-alt-field');
+        });
+
+        it('should initialise date pickers, with an empty altFormat option, when an altFormat is not present', () => {
+            datePicker.init($body);
+
+            expect($.fn.datepicker.args[0][0].altFormat).to.equal('');
+        });
+
+        it('should initialise date pickers, with the correct altFormat option, when an altFormat is present', () => {
+            $body.find('.form__control').attr('data-pulsardatepicker-altformat', 'yy-mm-dd');
+
+            datePicker.init($body);
+
+            expect($.fn.datepicker.args[0][0].altFormat).to.equal('yy-mm-dd');
+        });
+
         it('should add a placeholder to the date input based on the date format', () => {
             datePicker.init($body);
 
