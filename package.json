@@ -25,7 +25,6 @@
     ]
   },
   "scripts": {
-    "build": "browserify index.js --outfile dist/PulsarDatePicker.js",
     "coverage": "mochify --transform [ babelify ] --plugin [ mochify-istanbul --exclude '**/+(tests|node_modules|libs)/**/*' --report lcov --dir ./coverage --instrumenter babel-istanbul] --reporter spec ./tests/harness/common './tests/unit/**/*Test.js'",
     "jshint": "jshint .",
     "mocha": "mochify -r ./test/harness --recursive --reporter spec",
