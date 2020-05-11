@@ -1,0 +1,28 @@
+language: js
+
+before_install:
+  - npm i -g npm
+
+before_script:
+  - npm install
+  - mkdir -p dist/
+
+script:
+  - npm run coverage
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+
+sudo: required
+addons:
+  chrome: stable
+
+deploy:
+  provider: releases
+  api_key:
+    secure:
+  file: pulsar-date-picker.zip
+  skip_cleanup: true
+  on:
+    tags: true
+    all_branches: true
