@@ -34,14 +34,14 @@ class DatePickerNavigationManager {
             $prevLink.trigger('click');
         }
 
-        // Get cells and corrisponding TD in new month
+        // Get cells and corresponding TD in new month
         const $newCells = $datePickerContainer.find(ENABLED_SELECTOR);
         let newTd = $newCells[currentMonthsSelectedDateIndex];
 
-        // New months corrisponding date link
+        // New months corresponding date link
         let $newAnchor = newTd && $(newTd).find('a');
 
-        // If the corrisponding date in the new month doesn't exist, go back a date until we find one
+        // If the corresponding date in the new month doesn't exist, go back a date until we find one
         while (!$newAnchor) {
             currentMonthsSelectedDateIndex--;
             newTd = $newCells[currentMonthsSelectedDateIndex];

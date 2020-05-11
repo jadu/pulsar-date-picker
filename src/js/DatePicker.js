@@ -110,7 +110,7 @@ class DatePicker {
                 showButtonPanel: true,
                 showOn: 'button',
                 // Hide the default JQUI trigger button so we can attach to our own
-                beforeShow: function(input, inst){
+                beforeShow: function (input, inst) {
                     $(inst.dpDiv).addClass('pulsar-datepicker');
                 }
             });
@@ -142,7 +142,6 @@ class DatePicker {
 
         // Get the triggering button and related date input
         this.$triggerButton = $(event.target);
-        //this.$dateInput = this.$triggerButton.closest('.controls').find('[data-datepicker]');
         this.$dateInput = $datePickerInput;
 
         // Show the datepicker
@@ -150,10 +149,6 @@ class DatePicker {
 
         // Get the datepicker container
         this.$datePickerContainer = this.$html.find('#ui-datepicker-div');
-
-        // Get the next/prev link controls
-        this.$prevLink = this.$datePickerContainer.find('.ui-datepicker-prev');
-        this.$nextLink = this.$datePickerContainer.find('.ui-datepicker-next');
 
         // Hide the entire page (except the date picker)
         // from screen readers to prevent document navigation
@@ -177,26 +172,8 @@ class DatePicker {
         this.$datePickerContainer.attr('role', 'application');
         this.$datePickerContainer.attr('aria-label', 'Calendar view date-picker');
 
-        // Make the prev and next links focusable
-        this.$prevLink.attr('href', '#');
-        this.$nextLink.attr('href', '#');
-
-        // Make the next/prev links buttons and remove unneeded title
-        this.$nextLink.attr('role', 'button');
-        this.$nextLink.removeAttr('title');
-        this.$prevLink.attr('role', 'button');
-        this.$prevLink.removeAttr('title');
-
-        // Adds accessible labels to the prev/next links
-        this.accessibleLabelUtils.addControlLabels(this.$nextLink, this.$html);
-        this.accessibleLabelUtils.addControlLabels(this.$prevLink, this.$html);
-
-        // Add click listensers to next/prev month buttons each time they are added to the DOM
-        this.$nextLink.on('click', this.handleNextLinkClicks.bind(this));
-        this.$prevLink.on('click', this.handlePrevLinkClicks.bind(this));
-
-        // Add accessible date labels to individual dates
-        this.accessibleLabelUtils.addDateLabels(this.$datePickerContainer);
+        // Accessiblity changes to header elements
+        this.updateHeaderElements();
 
         // Remove previously bound handler so it doesn't bind twice
         // when mutiple date pickers are opened and closed

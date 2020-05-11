@@ -28,7 +28,7 @@ class DatePickerHighlightUtils {
     }
 
     /**
-     * Lighlight appropriate date
+     * Highlight appropriate date
      * @param {jQuery} $newHighlight element to highlight
      * @param {jQuery} $container
      */
