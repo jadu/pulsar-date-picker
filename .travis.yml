@@ -10,7 +10,6 @@ before_script:
   - npm install
 
 script:
-  - grunt
   - npm test
   - npm run coverage
 
