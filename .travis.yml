@@ -1,13 +1,15 @@
 language: js
 
 before_install:
-  - npm i -g npm
+  - npm install -g npm@5.5.1
 
 before_script:
+  - npm install -g grunt-cli
   - npm install
-  - mkdir -p dist/
 
 script:
+  - grunt
+  - npm test
   - npm run coverage
 
 after_success:
@@ -19,8 +21,6 @@ addons:
 
 deploy:
   provider: releases
-  api_key:
-    secure:
   file: pulsar-date-picker.zip
   skip_cleanup: true
   on:
