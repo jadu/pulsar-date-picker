@@ -121,12 +121,9 @@ class DatePicker {
             // Switch off autocomplete to avoid it overlapping the date picker
             $datePickerInput.attr('autocomplete', 'off');
 
-            // Attach enhancements to the linked trigger element
             $linkedTriggerButton.on('click', this.enhanceDatePicker.bind(this, $datePickerInput));
-
         });
 
-        // Attach close listener
         $html.on('click', '#ui-datepicker-div .ui-datepicker-close', () => {
             this.closeCalendar();
         });
@@ -137,17 +134,11 @@ class DatePicker {
      * @param {Event} event
      */
     enhanceDatePicker ($datePickerInput, event) {
-        // Prevent default
         event.preventDefault();
 
-        // Get the triggering button and related date input
         this.$triggerButton = $(event.target);
         this.$dateInput = $datePickerInput;
-
-        // Show the datepicker
         this.$dateInput.datepicker('show');
-
-        // Get the datepicker container
         this.$datePickerContainer = this.$html.find('#ui-datepicker-div');
 
         // Hide the entire page (except the date picker)
@@ -160,7 +151,6 @@ class DatePicker {
         // Hide the "today" button because it doesn't work as expected
         this.$html.find('.ui-datepicker-current').addClass('u-display-none');
 
-        // Focus todays date
         let $today = this.$html.find('.ui-datepicker-today a');
         if (!$today.length) {
             // If today isn't on the displayed month, use either the selected date (active) or the first of the month
@@ -168,11 +158,8 @@ class DatePicker {
         }
         $today.trigger('focus');
 
-        // Add role and label to date picker container
         this.$datePickerContainer.attr('role', 'application');
         this.$datePickerContainer.attr('aria-label', 'Calendar view date-picker');
-
-        // Accessiblity changes to header elements
         this.updateHeaderElements();
 
         // Remove previously bound handler so it doesn't bind twice
@@ -333,11 +320,8 @@ class DatePicker {
      * Handle calendar close
      */
     closeCalendar () {
-        // Remove bound handler
         this.$html.find('#ui-datepicker-div').off('keydown');
-        // Close the date picker
         this.$dateInput.datepicker('hide');
-        // Return focus to the date input
         this.$dateInput.trigger('focus');
     }
 
@@ -350,13 +334,13 @@ class DatePicker {
             event.preventDefault();
         }
 
-        // Update the header elements after change of month
+        // Update the header elements after change of month (as elements change)
         this.updateHeaderElements();
         // Highlight date in new month
         this.highlightUtils.prepHighlightState(this.$datePickerContainer);
         // Refocus the next button (otherwise focus returns to date input)
         this.$html.find('.ui-datepicker-next').trigger('focus');
-        // Re-hide the today button
+        // Re-hide the today button (as elements change)
         this.$html.find('.ui-datepicker-current').addClass('u-display-none');
     }
 
@@ -369,13 +353,13 @@ class DatePicker {
             event.preventDefault();
         }
 
-        // Update the header elements after change of month
+        // Update the header elements after change of month (as elements change)
         this.updateHeaderElements();
         // Highlight date in new month
         this.highlightUtils.prepHighlightState(this.$datePickerContainer);
         // Refocus the prev button (otherwise focus returns to date input)
         this.$html.find('.ui-datepicker-prev').trigger('focus');
-        // Re-hide the today button
+        // Re-hide the today button (as elements change)
         this.$html.find('.ui-datepicker-current').addClass('u-display-none');
     }
 
