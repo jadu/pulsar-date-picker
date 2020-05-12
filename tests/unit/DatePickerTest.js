@@ -50,7 +50,7 @@ describe('DatePicker', () => {
                     <label for="guid-514261410" class="control__label">Date field with date picker</label>
                     <div class="controls">
                         <div class="input-group has-btn-appended">
-                            <input data-pulsardatepicker="true" data-pulsardatepicker-trigger="trigger-button-1" id="guid-514261410" data-pulsardatepicker-format="default" type="text" class="form__control">
+                            <input data-pulsar-datepicker="true" data-pulsar-datepicker-trigger="trigger-button-1" id="guid-514261410" data-pulsar-datepicker-format="default" type="text" class="form__control">
                             <span class="input-group-btn">
                                 <button id="trigger-button-1" type="button" class="btn">
                                     <i class="icon-calendar">
@@ -187,7 +187,7 @@ describe('DatePicker', () => {
         });
 
         it('should initialise date pickers, with the correct date format option when the US format is used', () => {
-            $body.find('.form__control').attr('data-pulsardatepicker-format', 'us');
+            $body.find('.form__control').attr('data-pulsar-datepicker-format', 'us');
 
             datePicker.init($body);
 
@@ -195,7 +195,7 @@ describe('DatePicker', () => {
         });
 
         it('should initialise date pickers, with the correct date format option when the reverse format is used', () => {
-            $body.find('.form__control').attr('data-pulsardatepicker-format', 'reverse');
+            $body.find('.form__control').attr('data-pulsar-datepicker-format', 'reverse');
 
             datePicker.init($body);
 
@@ -240,7 +240,7 @@ describe('DatePicker', () => {
 
         it('should initialise date pickers, with the correct altField option, when an altField is present', () => {
             $('<input type="text" id="example-alt-field" />').insertAfter($body.find('.form__control'))
-            $body.find('.form__control').attr('data-pulsardatepicker-altfield', 'example-alt-field');
+            $body.find('.form__control').attr('data-pulsar-datepicker-altfield', 'example-alt-field');
 
             datePicker.init($body);
 
@@ -254,7 +254,7 @@ describe('DatePicker', () => {
         });
 
         it('should initialise date pickers, with the correct altFormat option, when an altFormat is present', () => {
-            $body.find('.form__control').attr('data-pulsardatepicker-altformat', 'yy-mm-dd');
+            $body.find('.form__control').attr('data-pulsar-datepicker-altformat', 'yy-mm-dd');
 
             datePicker.init($body);
 
@@ -264,13 +264,13 @@ describe('DatePicker', () => {
         it('should add a placeholder to the date input based on the date format', () => {
             datePicker.init($body);
 
-            expect($formGroup1.find('[data-pulsardatepicker="true"]').attr('placeholder')).to.equal('dd/mm/yyyy');
+            expect($formGroup1.find('[data-pulsar-datepicker="true"]').attr('placeholder')).to.equal('dd/mm/yyyy');
         });
 
         it('should turn autocomplete off on the date input', () => {
             datePicker.init($body);
 
-            expect($formGroup1.find('[data-pulsardatepicker="true"]').attr('autocomplete')).to.equal('off');
+            expect($formGroup1.find('[data-pulsar-datepicker="true"]').attr('autocomplete')).to.equal('off');
         });
     });
 
