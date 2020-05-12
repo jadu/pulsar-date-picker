@@ -1,0 +1,21 @@
+language: node_js
+node_js:
+  - 10
+
+before_install:
+  - npm i -g npm
+
+before_script:
+  - npm i -g grunt-cli
+  - npm install
+
+script:
+  - npm test
+  - npm run coverage
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+
+sudo: required
+addons:
+  chrome: stable
