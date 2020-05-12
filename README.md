@@ -24,21 +24,21 @@ Include the Date Picker styles into your existing Sass bundle.
 
 ### Usage
 
-You'll need a trigger button for the Date Picker and your date input to have the following data attributes: `data-pulsardatepicker="true"` and `data-pulsardatepicker-trigger="ID-of-trigger-button"`.
+You'll need a trigger button for the Date Picker and your date input to have the following data attributes: `data-pulsar-datepicker="true"` and `data-pulsar-datepicker-trigger="ID-of-trigger-button"`.
 
 For example:
 
 ```html
 <label for="example">Pick a date</label>
-<input data-pulsardatepicker="true" id="example" data-pulsardatepicker-trigger="trigger-button" type="text">
+<input data-pulsar-datepicker="true" id="example" data-pulsar-datepicker-trigger="trigger-button" type="text">
 <button type="button" id="trigger-button">Show calendar</button>
 ```
 
 #### Date formats
 
-The date picker defaults to `DD/MM/YYYY`. For the US date format `MM/DD/YYYY` add `data-pulsardatepicker-format="US"` to the date input. Alternatively for a reverse format `YYYY/MM/DD` add `data-pulsardatepicker-format="reverse"`.
+The date picker defaults to `DD/MM/YYYY`. For the US date format `MM/DD/YYYY` add `data-pulsar-datepicker-format="US"` to the date input. Alternatively for a reverse format `YYYY/MM/DD` add `data-pulsar-datepicker-format="reverse"`.
 
-It's also possible to update an alternative field with a different date format by using `data-pulsardatepicker-altfield="ID-of-alternative-field"` and `data-pulsardatepicker-altformat="yy-mm-dd"`. See the [jQuery UI datepicker docs](https://api.jqueryui.com/datepicker/) for more examples of supported date formats.
+It's also possible to update an alternative field with a different date format by using `data-pulsar-datepicker-altfield="ID-of-alternative-field"` and `data-pulsar-datepicker-altformat="yy-mm-dd"`. See the [jQuery UI datepicker docs](https://api.jqueryui.com/datepicker/) for more examples of supported date formats.
 
 ### Behaviour
 

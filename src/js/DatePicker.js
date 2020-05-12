@@ -59,29 +59,29 @@ class DatePicker {
     init ($html) {
         this.$html = $html;
 
-        const $datePickers = $html.find('[data-pulsardatepicker="true"]');
+        const $datePickers = $html.find('[data-pulsar-datepicker="true"]');
         let defaultDateFormat;
         let inputPlaceholder;
 
         $datePickers.each((index, element) => {
             let $datePickerInput = $(element);
-            let dateFormat = $datePickerInput.attr('data-pulsardatepicker-format');
-            let linkedTriggerButtonId = $datePickerInput.attr('data-pulsardatepicker-trigger');
+            let dateFormat = $datePickerInput.attr('data-pulsar-datepicker-format');
+            let linkedTriggerButtonId = $datePickerInput.attr('data-pulsar-datepicker-trigger');
             let $linkedTriggerButton = this.$html.find('#' + linkedTriggerButtonId);
-            let altField = $datePickerInput.attr('data-pulsardatepicker-altfield');
-            let altFormat = $datePickerInput.attr('data-pulsardatepicker-altformat');
+            let altField = $datePickerInput.attr('data-pulsar-datepicker-altfield');
+            let altFormat = $datePickerInput.attr('data-pulsar-datepicker-altformat');
 
-            if ($datePickerInput.attr('data-pulsardatepicker-trigger') === undefined) {
-                console.warn('Datepicker: The date input must include a data-pulsardatepicker-trigger data attribute with the value matching the ID of the trigger button');
+            if ($datePickerInput.attr('data-pulsar-datepicker-trigger') === undefined) {
+                console.warn('Datepicker: The date input must include a data-pulsar-datepicker-trigger data attribute with the value matching the ID of the trigger button');
                 return;
             }
 
             if (!$linkedTriggerButton.length) {
-                console.warn('Datepicker: The trigger button element with the ID given in data-pulsardatepicker-trigger cannot be found');
+                console.warn('Datepicker: The trigger button element with the ID given in data-pulsar-datepicker-trigger cannot be found');
                 return;
             }
 
-            // Check if data-pulsardatepicker-format attribute exists and lowercase it
+            // Check if data-pulsar-datepicker-format attribute exists and lowercase it
             // to eliminate different styles of writing issues
             if (dateFormat !== undefined) {
                 dateFormat = dateFormat.toLowerCase();
