@@ -125,6 +125,8 @@ class DatePicker {
             // Switch off autocomplete to avoid it overlapping the date picker
             $datePickerInput.attr('autocomplete', 'off');
 
+            $datePickerInput.on('keyup', this.enhanceDatePicker.bind(this, $datePickerInput));
+
             $linkedTriggerButton.on('click', this.enhanceDatePicker.bind(this, $datePickerInput));
         });
 
@@ -160,7 +162,13 @@ class DatePicker {
             // If today isn't on the displayed month, use either the selected date (active) or the first of the month
             $today = this.$html.find('.ui-state-active') || this.$html.find('.ui-state-default').first();
         }
-        $today.trigger('focus');
+
+        // If user is typing into the date field, maintain focus there isntead of the value of today
+        if (event.type === 'keyup') {
+            this.$dateInput.trigger('focus');
+        } else {
+            $today.trigger('focus');
+        }
 
         this.$datePickerContainer.attr('role', 'application');
         this.$datePickerContainer.attr('aria-label', 'Calendar view date-picker');
