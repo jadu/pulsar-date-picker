@@ -278,7 +278,6 @@ describe('DatePicker', () => {
     describe('When the date picker trigger button is clicked', () => {
         beforeEach(() => {
             datePicker.init($body);
-            keyDownEventMisc.keyCode = 37;
         });
 
         it('should prevent default', () => {
