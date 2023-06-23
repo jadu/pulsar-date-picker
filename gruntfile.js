@@ -7,6 +7,7 @@ module.exports = function(grunt) {
         sass: {
             dev: {
                 options: {
+                    implementation: sass,
                     outputStyle: 'nested',
                     sourceMap: true
                 },

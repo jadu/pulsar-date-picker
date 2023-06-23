@@ -49,6 +49,7 @@
     "chai": "^2.3.0",
     "chai-dom": "^1.6.0",
     "chai-hiff": "^1.0.0",
+    "dart-sass": "^1.25.0",
     "growl": ">=1.10.0",
     "grunt": "^1.0.3",
     "grunt-browserify": "^5.0.0",
