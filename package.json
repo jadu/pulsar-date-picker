@@ -32,8 +32,8 @@
     "test:headless": "mochify --reporter spec --transform [ babelify ] ./tests/harness/common './tests/unit/**/*Test.js'"
   },
   "dependencies": {
-    "jquery": "^3.4.1",
-    "jquery-ui": "^1.12.1"
+    "jquery": "^3.7.0",
+    "jquery-ui": "^1.13.2"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
@@ -45,19 +45,19 @@
     "babelify": "^7.3.0",
     "browserify": "^11.2.0",
     "browserify-istanbul": "^2.0.0",
-    "browserify-shim": "^3.8.9",
+    "browserify-shim": "^3.8.16",
     "chai": "^2.3.0",
-    "chai-dom": "^1.6.0",
+    "chai-dom": "^1.11.0",
     "chai-hiff": "^1.0.0",
     "dart-sass": "^1.25.0",
     "growl": ">=1.10.0",
-    "grunt": "^1.0.3",
+    "grunt": "^1.6.1",
     "grunt-browserify": "^5.0.0",
     "grunt-contrib-watch": "^1.0.0",
-    "grunt-sass": "^1.1.0",
-    "jshint": "^2.8.0",
+    "grunt-sass": "^3.1.0",
+    "jshint": "^2.13.6",
     "matchdep": "^2.0.0",
-    "minimatch": ">=3.0.2",
+    "minimatch": "^9.0.1",
     "mocha": "^2.4.5",
     "mochify": "^5.2.0",
     "mochify-istanbul": "^2.4.2",
