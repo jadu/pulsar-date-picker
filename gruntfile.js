@@ -1,3 +1,4 @@
+const sass = require('dart-sass');
 
 module.exports = function(grunt) {
 
@@ -8,7 +9,6 @@ module.exports = function(grunt) {
             dev: {
                 options: {
                     implementation: sass,
-                    outputStyle: 'nested',
                     sourceMap: true
                 },
                 files: [{
