@@ -21,6 +21,7 @@ describe('DatePicker', () => {
     let clickEvent = $.Event('click');
     let nextMonthClickEvent = $.Event('click');
     let prevMonthClickEvent = $.Event('click');
+    let keyUpEvent = $.Event('keyup');
     let keyDownEventMisc = $.Event('keydown');
     let keyDownEventEsc = $.Event('keydown');
     let keyDownEventShiftTab = $.Event('keydown');
@@ -359,6 +360,14 @@ describe('DatePicker', () => {
 
             expect($body.find('.ui-datepicker-prev .hide').text()).to.equal('Previous Month, March 2020');
             expect($body.find('.ui-datepicker-next .hide').text()).to.equal('Next Month, May 2020');
+        });
+
+        it('should maintain focus on the date field if typing a date', () => {
+            $formGroup1.find('#trigger-button-1').trigger(clickEvent);
+            
+            $formGroup1.find('[data-pulsar-datepicker="true"]').trigger(keyUpEvent);
+
+            expect($formGroup1.find('[data-pulsar-datepicker="true"]').is(':focus')).to.be.true;
         });
     });
 
