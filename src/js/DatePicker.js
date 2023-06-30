@@ -128,7 +128,7 @@ class DatePicker {
             // Switch off autocomplete to avoid it overlapping the date picker
             $datePickerInput.attr('autocomplete', 'off');
 
-            $linkedTriggerButton.on('click', () => { boundEnhanceDatePicker($datePickerInput) });
+            $linkedTriggerButton.on('click', (event) => { boundEnhanceDatePicker(event) });
         });
 
         $html.on('click', '#ui-datepicker-div .ui-datepicker-close', () => {
