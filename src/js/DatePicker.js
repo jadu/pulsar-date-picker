@@ -16,11 +16,6 @@ class DatePicker {
          */
         this.$html = null;
         /**
-         * Calendar trigger button
-         * @type {JQuery|null}
-         */
-        this.$triggerButton = null;
-        /**
          * Date input
          * @type {JQuery|null}
          */
@@ -70,6 +65,7 @@ class DatePicker {
             let $linkedTriggerButton = this.$html.find('#' + linkedTriggerButtonId);
             let altField = $datePickerInput.attr('data-pulsar-datepicker-altfield');
             let altFormat = $datePickerInput.attr('data-pulsar-datepicker-altformat');
+            let boundEnhanceDatePicker = this.enhanceDatePicker.bind(this, $datePickerInput)
 
             if ($datePickerInput.attr('data-pulsar-datepicker-trigger') === undefined) {
                 console.warn('Datepicker: The date input must include a data-pulsar-datepicker-trigger data attribute with the value matching the ID of the trigger button');
@@ -116,6 +112,13 @@ class DatePicker {
                 // Hide the default JQUI trigger button so we can attach to our own
                 beforeShow: function (input, inst) {
                     $(inst.dpDiv).addClass('pulsar-datepicker');
+                },
+                onUpdateDatepicker: function (obj) {
+                    // Trigger enhancements on datepicker DOM update
+                    // Fixes timing issue where calendar open and
+                    // date entered in input causing a rerender of
+                    // JQUI calender that is missing enhancements
+                    boundEnhanceDatePicker($datePickerInput)
                 }
             });
 
@@ -125,7 +128,7 @@ class DatePicker {
             // Switch off autocomplete to avoid it overlapping the date picker
             $datePickerInput.attr('autocomplete', 'off');
 
-            $linkedTriggerButton.on('click', this.enhanceDatePicker.bind(this, $datePickerInput));
+            $linkedTriggerButton.on('click', (event) => { boundEnhanceDatePicker(event) });
         });
 
         $html.on('click', '#ui-datepicker-div .ui-datepicker-close', () => {
@@ -138,9 +141,11 @@ class DatePicker {
      * @param {Event} event
      */
     enhanceDatePicker ($datePickerInput, event) {
-        event.preventDefault();
+        // If triggered by button, prevent the default behaviour
+        if (event instanceof $.Event) {
+            event.preventDefault();
+        }
 
-        this.$triggerButton = $(event.target);
         this.$dateInput = $datePickerInput;
         this.$dateInput.datepicker('show');
         this.$datePickerContainer = this.$html.find('#ui-datepicker-div');
