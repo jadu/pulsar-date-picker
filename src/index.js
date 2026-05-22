@@ -1,3 +1,3 @@
-const DatePickerFactory = require('./js/DatePickerFactory');
+const DatePickerFactory = require('./js/DatePickerFactory').default;
 
-module.exports = DatePickerFactory.create();
+export default DatePickerFactory.create();

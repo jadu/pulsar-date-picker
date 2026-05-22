@@ -23,4 +23,4 @@ class DatePickerFactory {
     }
 }
 
-module.exports = DatePickerFactory;
+export default DatePickerFactory;
